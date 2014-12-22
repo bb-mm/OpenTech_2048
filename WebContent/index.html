@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2048-开源之路版</title>
+  <link href="style/main-5.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="logo_small.ico">
+  <meta name="keywords" content="2048, harryzuo, 2048自定义"/>
+  <style>.button{color:white;text-decoration:none;padding:10px;margin:auto;background:#8f7a66;border:2px solid #000;}</style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="heading">
+    <h1 class="images"><img src = "logo_1.png"></img></h1>
+      <h1 class="title">2048<br>开源之路</h1>
+      
+    </div>
+    <div class="above-game">
+      <a class="restart-button">重新开始游戏</a>
+      <div class="scores-container">
+        <div class="score-container">0</div>
+        <div class="best-container">0</div>
+      </div>
+    </div>
+    <div class="game-container">
+      <div class="game-message">
+        <p></p>
+        <div class="lower">
+	        <a class="keep-playing-button">继续游戏</a>
+          <a class="retry-button">重新开始</a>
+        </div>
+      </div>
+
+      <div class="grid-container">
+              <div class="grid-row">
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                </div>
+              <div class="grid-row">
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                </div>
+              <div class="grid-row">
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                </div>
+              <div class="grid-row">
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                </div>
+               <div class="grid-row">
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                  <div class="grid-cell"></div>
+                </div>
+            </div>
+
+      <div class="tile-container">
+      </div>
+    </div>
+ </div>
+    <script>
+    var my_list = {2:'开源小白',4:'开源菜鸟',8:'普通用户',16:'开源用户',32:'爱好者',64:'开源者行',128:'开源大使',256:'开源之星',512:'模块负责人',1024:'开源构架师',2048:'项目发起者',4096:'发布许可证',8192:'开源之神',16384:'开源社',32768:'呵',65536:'呵呵。。',131072:'呵呵呵',262144:'131072',524288:'262144',1048576:'524288',2097152:'1048576',4194304:'2097152',8388608:'4194304',16777216:'8388608',33554432:'16777216',67108864:'33554432',134217728:'67108864',268435456:'134217728',536870912:'268435456',1073741824:'536870912',2147483648:'1073741824'}
+    var my_mark = {2:'Game Over, HiScore: 2',4:'Game Over, HiScore: 4',8:'Game Over, HiScore: 8',16:'Game Over, HiScore: 16',32:'Game Over, HiScore: 32',64:'Game Over, HiScore: 64',128:'继续努力！',256:'不错不错！',512:'也就当个小官~',1024:'有点意思~',2048:'强啊！',4096:'相当驸马？找死~！',8192:'后面的不考虑了~',16384:'Game Over, HiScore: 16384',32768:'Game Over, HiScore: 32768',65536:'Game Over, HiScore: 65536',131072:'65536',262144:'131072',524288:'262144',1048576:'524288',2097152:'1048576',4194304:'2097152',8388608:'4194304',16777216:'8388608',33554432:'16777216',67108864:'33554432',134217728:'67108864',268435456:'134217728',536870912:'268435456',1073741824:'536870912',2147483648:'1073741824'}
+    var my_goal = 2048;
+    var my_win  = '连中三元！';
+    var easyMode = false;
+    var MyCheckValid = null;
+    </script>
+    <hr>
+    <div style="text-align:center;">
+     <div class="game-explanation">
+    <p>
+      欢迎加入<a href="http://www.kaiyuanshe.cn">开源社</a> 
+    </p>
+    <p>
+    <img src= "bar_code.jpg"></img>
+    </p>
+</div>
+</div>
+<hr/>
+  <script src="http://immez.github.io/2048/js/bind_polyfill.js"></script>
+  <script src="http://immez.github.io/2048/js/classlist_polyfill.js"></script>
+  <script src="http://immez.github.io/2048/js/animframe_polyfill.js"></script>
+  <script src="http://immez.github.io/2048/js/keyboard_input_manager.js"></script>
+  <script src="http://immez.github.io/2048/js/html_actuator.js"></script>
+  <script src="http://immez.github.io/2048/js/grid.js"></script>
+  <script src="http://immez.github.io/2048/js/tile.js"></script>
+  <script src="http://immez.github.io/2048/js/local_storage_manager.js"></script>
+  <script src="http://immez.github.io/2048/js/game_manager.js"></script>
+  <script>
+    // Wait till the browser is ready to render the game (avoids glitches)
+    window.requestAnimationFrame(function (){
+      var game = new GameManager(5, KeyboardInputManager, HTMLActuator, LocalStorageManager);
+          });
+      </script>
+</body>
+</html>
