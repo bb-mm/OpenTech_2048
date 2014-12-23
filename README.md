@@ -6,5 +6,5 @@ Made just for FUN! [Play it Here!](http://kaiyuanshe.cn/2048/)
 
 ### Screenshot
 <p align="center">
-  <img src="http://pictures.gabrielecirulli.com/2048-20140309-234100.png" alt="Screenshot"/>
+  <img src="https://github.com/bb-mm/OpenTech_2048/blob/master/screenshot.PNG" alt="Screenshot"/>
 </p>
